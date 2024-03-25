@@ -1,6 +1,11 @@
 pipeline {
     agent any
     
+    environment {
+        GIT_COMMITTER_NAME = 'Albertill0'
+        GIT_COMMITTER_EMAIL = 'Alberto.Quintana@alu.uclm.es'
+    }
+    
     stages {
         stage('Clonar Repositorio') {
             steps {
