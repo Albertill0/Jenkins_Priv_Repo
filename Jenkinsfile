@@ -21,7 +21,7 @@ pipeline {
                 script {
                     // Puedes ajustar los parámetros según tu configuración de SonarQube
                     def scannerHome = tool 'SonarQube'
-                    withSonarQubeEnv('SonarQube Server') {
+                    withSonarQubeEnv('SonarQube') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
