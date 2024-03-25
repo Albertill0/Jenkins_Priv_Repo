@@ -1,20 +1,19 @@
 pipeline {
     agent any
     
-    environment {
-        GIT_COMMITTER_NAME = 'Albertill0'
-        GIT_COMMITTER_EMAIL = 'Alberto.Quintana@alu.uclm.es'
-    }
-    
     stages {
         stage('Clonar Repositorio') {
             steps {
                 // Clona el repositorio desde GitHub utilizando las credenciales
-                git credentialsId: 'GithubUsrPass', url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
+                git credentialsId: 'your-credentials-id', url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
             }
         }
         stage('Build') {
             steps {
+                // Establece la identidad del usuario para este repositorio
+                sh 'git config user.email "you@example.com"'
+                sh 'git config user.name "Your Name"'
+                
                 // Genera el archivo README_BUILD
                 sh 'echo "HOLA PIPELINA" > README_BUILD'
                 // Agrega y commitea el archivo README_BUILD
