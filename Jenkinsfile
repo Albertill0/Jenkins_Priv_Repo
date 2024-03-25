@@ -4,8 +4,8 @@ pipeline {
     stages {
         stage('Clonar Repositorio') {
             steps {
-                // Clona el repositorio desde GitHub
-                git 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
+                // Clona el repositorio desde GitHub utilizando las credenciales
+                git credentialsId: 'Github', url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
             }
         }
         stage('Build') {
