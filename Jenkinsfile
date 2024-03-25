@@ -14,7 +14,18 @@ pipeline {
                 }
             }
         }
+        
+        stage('Analizar con SonarQube') {
+            steps {
+                // Ejecutar el análisis de SonarQube
+                script {
+                    // Puedes ajustar los parámetros según tu configuración de SonarQube
+                    def scannerHome = tool 'SonarQube Scanner'
+                    withSonarQubeEnv('SonarQube Server') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
+            }
+        }
     }
-    
-    // No hay más etapas definidas, por lo que el pipeline no realizará ninguna otra acción
 }
