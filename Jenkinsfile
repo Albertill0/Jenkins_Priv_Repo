@@ -20,7 +20,7 @@ pipeline {
                 // Ejecutar el análisis de SonarQube
                 script {
                     // Puedes ajustar los parámetros según tu configuración de SonarQube
-                    def scannerHome = tool 'SonarQube Scanner'
+                    def scannerHome = tool 'SonarQube'
                     withSonarQubeEnv('SonarQube Server') {
                         sh "${scannerHome}/bin/sonar-scanner"
                     }
