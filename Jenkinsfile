@@ -48,6 +48,6 @@ def isCMakeInstalled() {
 }
 
 def installCMake() {
-    sh 'sudo apt-get update'
-    sh 'sudo apt-get install -y cmake'
+    sh 'apt-get update'
+    sh 'apt-get install -y cmake'
 }
