@@ -1,6 +1,7 @@
 pipeline {
-    agent CMake
-    
+    agent {
+        label 'CMake'
+    }    
     stages {
         stage('Clonar repositorio privado') {
             steps {
