@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent cmake-agent
     
     stages {
         stage('Clonar repositorio privado') {
