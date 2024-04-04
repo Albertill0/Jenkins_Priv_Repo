@@ -27,5 +27,27 @@ pipeline {
                 }
             }
         }
+
+                stage('Install CMake') {
+            steps {
+                script {
+                    // Install CMake
+                    if (!isCMakeInstalled()) {
+                        installCMake()
+                    } else {
+                        echo 'CMake is already installed.'
+                    }
+                }
+            }
+        }
     }
+}
+
+def isCMakeInstalled() {
+    return sh(script: 'command -v cmake >/dev/null', returnStatus: true) == 0
+}
+
+def installCMake() {
+    sh 'sudo apt-get update'
+    sh 'sudo apt-get install -y cmake'
 }
