@@ -3,19 +3,6 @@ pipeline {
         label 'CMake'
     }
 
-podTemplate(containers: [
-    containerTemplate(
-        name: 'jnlp', 
-        image: 'jenkins/inbound-agent:latest'
-        ),
-    containerTemplate(
-        name: 'python', 
-        image: 'python:latest', 
-        command: 'sleep', 
-        args: '30d')
-  ]) {
-
-node(POD_LABEL){
     stages {
         stage('Clonar repositorio privado de python') {
             steps {
@@ -27,16 +14,33 @@ node(POD_LABEL){
                     sh 'git config user.email "Alberto.Quintana@alu.uclm.es"'
                     sh 'git config user.name "Albertill0"'
                 }
-                container('python') {
-                stage('Compile python file') {
-                    sh '''
-                    python3 hola-mundo.py
-                    '''
-                }
-            }
             }
         }
-      }
     }
-  }
+
+    // Definir la plantilla de pod
+    podTemplate(
+        containers: [
+            containerTemplate(
+                name: 'jnlp', 
+                image: 'jenkins/inbound-agent:latest'
+            ),
+            containerTemplate(
+                name: 'python', 
+                image: 'python:latest', 
+                command: 'sleep', 
+                args: '30d'
+            )
+        ]
+    ) {
+        node(POD_LABEL){
+            container('python') {
+                stage('Compile python file') {
+                    steps {
+                        sh 'python3 hola-mundo.py'
+                    }
+                }
+            }
+        }
+    }
 }
