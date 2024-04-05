@@ -34,10 +34,10 @@ pipeline {
                 // Crear un directorio de compilación separado
                 dir('build') {
                     // Configurar el proyecto con CMake
-                    sh 'cmake ../CMakeLists.txt'
+                    sh '/usr/local/bin/cmake ../CMakeLists.txt'
                     
                     // Compilar el proyecto
-                    sh 'make'
+                    sh '/usr/local/bin/make'
                 }
             }
         }
