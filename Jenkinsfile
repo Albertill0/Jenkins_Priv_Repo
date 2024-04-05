@@ -16,18 +16,18 @@ pipeline {
             }
         }
 
-                stage('Install CMake') {
-            steps {
-                script {
-                    // Install CMake
-                    if (!isCMakeInstalled()) {
-                        installCMake()
-                    } else {
-                        echo 'CMake is already installed.'
-                    }
-                }
-            }
-        }
+        //         stage('Install CMake') {
+        //     steps {
+        //         script {
+        //             // Install CMake
+        //             if (!isCMakeInstalled()) {
+        //                 installCMake()
+        //             } else {
+        //                 echo 'CMake is already installed.'
+        //             }
+        //         }
+        //     }
+        // }
         
         stage('Configurar y compilar proyecto C++ con CMake') {
             steps {
@@ -44,11 +44,11 @@ pipeline {
     }
 }
 
-def isCMakeInstalled() {
-    return sh(script: 'command -v cmake >/dev/null', returnStatus: true) == 0
-}
+// def isCMakeInstalled() {
+//     return sh(script: 'command -v cmake >/dev/null', returnStatus: true) == 0
+// }
 
-def installCMake() {
-    sh 'apt-get update'
-    sh 'apt-get install -y cmake'
-}
+// def installCMake() {
+//     sh 'apt-get update'
+//     sh 'apt-get install -y cmake'
+// }
