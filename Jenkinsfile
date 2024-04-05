@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'jenkins-python-agent'
+        label 'pyAgent'
     }
     stages {
         stage('Python build of file') {
