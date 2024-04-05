@@ -16,6 +16,7 @@ pipeline {
             }
         }
     }
+
     // Definir la plantilla de pod fuera de las etapas
     podTemplate(
         containers: [
