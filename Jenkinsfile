@@ -1,21 +1,22 @@
 pipeline {
     agent {
         label 'pyAgent'
-    }
+    }    
     stages {
-        stage('Python3 build of file') {
-            environment {
-                // Define las credenciales de GitHub
-                GIT_CREDENTIALS = credentials('GithubUsrPass')
-            }
+        stage('Clonar repositorio privado') {
             steps {
-                // Clona el repositorio de GitHub desde una rama específica
                 script {
-                    git branch: 'python',
-                        credentialsId: GIT_CREDENTIALS,
-                        url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
+                    // Clonar el repositorio utilizando las credenciales específicas
+                    git credentialsId: 'GithubUsrPass', url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git'
+
+                    // Establecer la identidad del usuario para este repositorio
+                    sh 'git config user.email "Alberto.Quintana@alu.uclm.es"'
+                    sh 'git config user.name "Albertill0"'
                 }
-                
+            }
+        }
+
+        stage('Python build of file') {    
                 // Ejecuta el archivo hola-mundo.py
                 sh 'python3 hola-mundo.py'
             }
