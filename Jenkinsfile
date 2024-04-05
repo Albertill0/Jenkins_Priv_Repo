@@ -3,14 +3,6 @@ pipeline {
         label 'pyAgent'
     }
     stages {
-        stage('Preparar ambiente') {
-            steps {
-                script {
-                    // Instalar Git
-                    sh 'apk update && apk add --no-cache git'
-                }
-            }
-        }
         stage('Ejecutar hola-mundo.py') {
             steps {
                 script {
