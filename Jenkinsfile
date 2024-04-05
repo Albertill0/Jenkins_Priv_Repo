@@ -2,7 +2,6 @@ pipeline {
     agent {
         label 'CMake'
     }
-
     stages {
         stage('Clonar repositorio privado de python') {
             steps {
@@ -17,8 +16,7 @@ pipeline {
             }
         }
     }
-
-    // Definir la plantilla de pod
+    // Definir la plantilla de pod fuera de las etapas
     podTemplate(
         containers: [
             containerTemplate(
@@ -34,9 +32,9 @@ pipeline {
         ]
     ) {
         node(POD_LABEL){
-            container('python') {
-                stage('Compile python file') {
-                    steps {
+            stage('Compile python file') {
+                steps {
+                    container('python') {
                         sh 'python3 hola-mundo.py'
                     }
                 }
