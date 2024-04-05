@@ -2,6 +2,8 @@ pipeline {
     agent {
         label 'CMake'
     }    
+        stages {
+        
         stage('Configurar y compilar proyecto C++ con CMake') {
             steps {
                 // Crear un directorio de compilación separado
