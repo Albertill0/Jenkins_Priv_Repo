@@ -1,5 +1,5 @@
 # Especifica la versión mínima de CMake requerida
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 
 # Define el nombre del proyecto
 project(Jenkins_Priv_Repo)
