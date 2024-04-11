@@ -1,16 +1,8 @@
 pipeline {
     agent {
-        label 'agentePi'
+        label 'any'
     }
     stages {
-        stage('Launch Agent') {
-            steps {
-                script {
-                    // Ejecutar el comando para cambiar de directorio, dar permisos al script y ejecutarlo
-                    sh 'cd ~/bin/agent.jar && chmod +x exec.sh && ./exec.sh'
-                }
-            }
-        }
         stage('Clonar Repositorio') {
             steps {
                 script {
