@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'any'
+        label 'manito'
     }
     stages {
         stage('Instalar Dependencias') {
