@@ -6,8 +6,8 @@ pipeline {
         stage('Instalar Dependencias') {
             steps {
                 script {
-                    // Instalar Python y Git
-                    sh 'sudo apt-get update && sudo apt-get install -y python3 git'
+                    // Instalar Python
+                    sh 'apt-get update && apt-get install -y python3'
                     // Puedes agregar más comandos aquí para instalar otras dependencias si es necesario
                 }
             }
