@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'milabel'
+        label 'agentePiKubernetes'
     }
     stages {
         stage('Ejecutar python3 hola-mundo.py') {
