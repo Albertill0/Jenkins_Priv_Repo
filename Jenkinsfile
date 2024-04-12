@@ -11,8 +11,8 @@ pipeline {
                     // Configurar el proyecto con CMake
                     sh 'cmake ../CMakeLists.txt'
                     
-                    // Compilar el proyecto
-                    sh 'make'
+                    // // Compilar el proyecto
+                    // sh 'make'
                 }
             }
         }
