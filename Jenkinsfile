@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'CMake'
+        label 'agentePi'
     }    
         stages {
         
