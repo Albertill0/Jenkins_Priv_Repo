@@ -13,7 +13,7 @@ pipeline {
                     // Compilar el proyecto con make desde el mismo directorio de compilación
                     sh 'cd /home/jenkins/agent/workspace/agentePi-Cmake && make'
                     // Comprobar directorio
-                    sh ' ls /home/jenkins/agent/workspace/agentePi-Cmake'
+                    sh ' /home/jenkins/agent/workspace/agentePi-Cmake/Jenkins_Priv_Repo'
                 }
             }
         }
