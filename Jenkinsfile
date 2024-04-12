@@ -4,13 +4,17 @@ pipeline {
     }
     stages {
         stage('waiting') {
-        hook = registerWebhook()
-        
-        echo "Waiting for POST to ${hook.url}"
-        data = waitForWebhook hook
-        
-        echo "Webhook called with data: ${data}"
-    }
+            steps {
+                script {
+                    def hook = registerWebhook()
+                    
+                    echo "Waiting for POST to ${hook.url}"
+                    def data = waitForWebhook hook
+                    
+                    echo "Webhook called with data: ${data}"
+                }
+            }
+        }
         stage('Ejecutar python3 hola-mundo.py') {
             steps {
                 script {
