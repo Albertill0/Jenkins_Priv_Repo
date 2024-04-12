@@ -2,16 +2,15 @@ pipeline {
     agent {
         label 'agentePi'
     }    
-        stages {
-        
+    stages {
         stage('Configurar y compilar proyecto C++ con CMake') {
             steps {
                 // Crear un directorio de compilación separado
                 dir('build') {
-                    // Configurar el proyecto con CMake
-                    sh 'cmake ../CMakeLists.txt'
+                    // Configurar el proyecto con CMake desde el directorio de compilación
+                    sh 'cmake ../'
                     
-                    // Compilar el proyecto
+                    // Compilar el proyecto con make desde el mismo directorio de compilación
                     sh 'make'
                 }
             }
