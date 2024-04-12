@@ -12,7 +12,7 @@ pipeline {
                     sh 'cmake ../CMakeLists.txt'
                     
                     // Compilar el proyecto
-                    sh 'make /home/jenkins/agent/workspace/agentePi-Cmake'
+                    sh 'make'
                 }
             }
         }
