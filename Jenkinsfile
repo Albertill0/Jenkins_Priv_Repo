@@ -9,7 +9,7 @@ pipeline {
                     // Hola de reconocimiento
                     sh 'echo "Hola"'
                     // Aquí se ejecuta el archivo hola-mundo.py
-                    sh 'python3 hola-mundo.py'
+                    sh 'python3 holamundo.py'
                 }
             }
         }
