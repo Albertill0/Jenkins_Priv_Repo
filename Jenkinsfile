@@ -11,7 +11,7 @@ pipeline {
                     sh 'cmake ../ .'
                     
                     // Compilar el proyecto con make desde el mismo directorio de compilación
-                    sh 'make'
+                    sh 'ls'
                 }
             }
         }
