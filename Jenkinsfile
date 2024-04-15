@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'agentePi' // El correcto es con agentePi, el usuario correcto
+        label 'agentePi' // El correcto es con agentePi
     }
     stages {
         stage('Ejecutar python3 hola-mundo.py') {
