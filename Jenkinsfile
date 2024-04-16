@@ -1,13 +1,13 @@
 pipeline {
     agent {
-        label 'jenkins-jenkins-agent' // El correcto es con agentePi3
+        label 'agentePi' // El correcto es con agentePi3
     }
     stages {
         stage('OWASP Dependency-Check Vulnerabilities') {
       steps {
         dependencyCheck additionalArguments: ''' 
-                    -o './'
-                    -s './'
+                    -o '/home/jenkins/agent/workspace/Free'
+                    -s '/home/jenkins/agent/workspace/Free/holamundo.py'
                     -f 'HTML' 
                     --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
         
@@ -21,7 +21,7 @@ pipeline {
                     sh 'echo "Hola"'
                     sh 'echo "Hook2"'
                     // Aquí se ejecuta el archivo hola-mundo.py
-                    sh 'python3 holamundo.py'
+                    // sh 'python3 holamundo.py'
                 }
             }
         }
