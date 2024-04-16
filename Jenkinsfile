@@ -8,7 +8,7 @@ pipeline {
         dependencyCheck additionalArguments: ''' 
                     -o './'
                     -s './'
-                    -f 'ALL' 
+                    -f 'HTML' 
                     --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
         
         dependencyCheckPublisher pattern: 'dependency-check-report.xml'
