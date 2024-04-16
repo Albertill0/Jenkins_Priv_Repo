@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'agentePi' // El correcto es con agentePi3
+        label 'jenkins-jenkins-agent' // El correcto es con agentePi3
     }
     stages {
         stage('OWASP Dependency-Check Vulnerabilities') {
