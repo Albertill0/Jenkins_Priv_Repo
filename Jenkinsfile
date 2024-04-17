@@ -1,5 +1,3 @@
-
-User
 pipeline {
     agent {
         label 'agentePi'
