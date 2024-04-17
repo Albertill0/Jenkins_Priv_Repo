@@ -1,5 +1,5 @@
 import pickle
-import requests
+import django
 
 def hola_mundo():
     print("Hola mundo!")
