@@ -6,8 +6,8 @@ pipeline {
         stage('OWASP Dependency-Check Vulnerabilities') {
       steps {
         dependencyCheck additionalArguments: ''' 
-                    -o '/home/jenkins/agent/workspace/Free'
-                    -s '/home/jenkins/agent/workspace/Free/holamundo.py'
+                    -o './*'
+                    -s './*'
                     -f 'HTML' 
                     --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
         
