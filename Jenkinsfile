@@ -2,10 +2,7 @@ pipeline {
     agent {
         label 'agentePi3' // Cambiado a agentePi3
     }
-    options {
-        // Opciones adicionales para asegurar el correcto manejo de credenciales
-        skipDefaultCheckout(true) // Evita el checkout por defecto
-    }
+    
     stages {
         stage('Git Clone and Dependency Scan') {
             steps {
