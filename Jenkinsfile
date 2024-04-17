@@ -6,8 +6,8 @@ pipeline {
         stage('OWASP Dependency-Check Vulnerabilities') {
       steps {
         dependencyCheck additionalArguments: ''' 
-                    -o './*'
-                    -s './*'
+                    -o './'
+                    -s './'
                     -f 'HTML' 
                     --prettyPrint''', odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
         
