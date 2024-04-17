@@ -21,7 +21,7 @@ pipeline {
                     sh 'echo "Hola"'
                     sh 'echo "Hook2"'
                     // Aquí se ejecuta el archivo hola-mundo.py
-                    // sh 'python3 holamundo.py'
+                    sh 'python3 holamundo.py'
                 }
             }
         }
