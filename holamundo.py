@@ -1,4 +1,5 @@
 import pickle
+import requests
 
 def hola_mundo():
     print("Hola mundo!")
