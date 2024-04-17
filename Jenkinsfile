@@ -12,7 +12,7 @@ pipeline {
                 script {
                     // Realizar git clone con las credenciales
                     checkout([$class: 'GitSCM',
-                        branches: [[name: 'master']], // Puedes cambiar el nombre de la rama si es necesario
+                        branches: [[name: 'python']], // Puedes cambiar el nombre de la rama si es necesario
                         userRemoteConfigs: [[
                             url: 'https://github.com/Albertill0/Jenkins_Priv_Repo.git',
                             credentialsId: 'Github']]]) // Reemplaza con tu ID de credenciales
@@ -22,7 +22,7 @@ pipeline {
         stage('OWASP Dependency-Check Vulnerabilities') {
             steps {
                 // Cambiar al directorio del clon antes de ejecutar el escaneo de dependencias
-                dir('nombre_del_directorio_clonado') { // Reemplaza 'nombre_del_directorio_clonado' con el nombre correcto del directorio
+                dir('Jenkins_Priv_Repo') { // Reemplaza 'nombre_del_directorio_clonado' con el nombre correcto del directorio
                     dependencyCheck additionalArguments: ''' 
                         -o './'
                         -s './'
