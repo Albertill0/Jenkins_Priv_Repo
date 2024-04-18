@@ -3,6 +3,14 @@ pipeline {
         label 'agentePi'
     }
     stages {
+        
+        stage('ZAP') {
+            steps {
+                dependencyCheck additionalArguments:'',odcInstallation: 'dependency-check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.html'
+            }
+        }
+        
         stage('Ejecutar python3 hola-mundo.py') {
             steps {
                 script {
