@@ -6,8 +6,10 @@ pipeline {
         
         stage('ZAP') {
             steps {
+                sh 'echo "estoy aqui"'
                 dependencyCheck additionalArguments:'',odcInstallation: 'dependency-check'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.html'
+                sh 'echo "termino"'
             }
         }
         
